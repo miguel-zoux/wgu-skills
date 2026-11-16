@@ -1,0 +1,9 @@
+{
+  "name": "wgu-course-ds",
+  "description": "Build and review WGU course UI against the WGU Course Design System (tokens, components, rules), in any stack.",
+  "version": "1.0.1",
+  "author": {
+    "name": "Miguel Sandoval"
+  },
+  "keywords": ["design-system", "wgu", "open-edx", "tokens", "accessibility"]
+}

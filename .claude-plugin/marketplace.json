@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "wgu-skills",
+  "description": "Claude Code plugins for building WGU courses.",
+  "owner": {
+    "name": "Miguel Sandoval"
+  },
+  "plugins": [
+    {
+      "name": "wgu-course-ds",
+      "source": "./plugins/wgu-course-ds",
+      "description": "Build and review WGU course UI against the WGU Course Design System, in any stack.",
+      "version": "1.0.1"
+    }
+  ]
+}

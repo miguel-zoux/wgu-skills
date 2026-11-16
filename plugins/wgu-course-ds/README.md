@@ -20,7 +20,7 @@ Install it in each course project folder, so it's only active there.
 **In the Claude app** (Code tab, with your course folder open), send Claude this message and click **Allow** each time it asks:
 
 ```
-Set up the WGU course design system plugin for this project only: add the plugin marketplace miguel-zoux/wgu-skills, install wgu-course-ds@wgu-skills with project scope, then turn on auto-update for the wgu-skills marketplace in this project's settings.
+Set up the WGU course design system plugin for this project only: add the plugin marketplace miguel-zoux/wgu-skills, then install wgu-course-ds@wgu-skills with project scope.
 ```
 
 Then start a new chat. The skills show under **+ → Slash commands** as `wgu-course-ds:…`.
@@ -32,15 +32,13 @@ claude plugin marketplace add miguel-zoux/wgu-skills
 claude plugin install wgu-course-ds@wgu-skills --scope project
 ```
 
-Then add `"autoUpdate": true` to the `wgu-skills` entry under `extraKnownMarketplaces` in the project's `.claude/settings.json`.
-
 Project scope records the plugin in the folder's `.claude/settings.json`, so it doesn't load anywhere else.
 
 ## Updates
 
-- **Automatic:** with auto-update on, new versions arrive within about ten minutes of starting a session and load in the next chat.
 - **By hand:** send Claude *"Update the WGU course design system plugin: run claude plugin marketplace update wgu-skills, then claude plugin update wgu-course-ds@wgu-skills --scope project."*, then start a new chat.
 - **Making sure everyone updates:** the design system's `project/README.md` can name a minimum plugin version (see `docs/for-ds-readme.md`). When someone's copy is older, the skill tells them and gives them the update message.
+- **Automatic (optional, per person):** auto-update is a personal setting for the `wgu-skills` marketplace. Turning it on in a project's `.claude/settings.json` has no effect. In a terminal session, open `/plugin` → **Marketplaces** → `wgu-skills` → **Enable auto-update**. It only refreshes the marketplace; the plugin stays on only in the projects where it's installed.
 
 ## Requirements
 

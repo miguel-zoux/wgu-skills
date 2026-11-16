@@ -5,7 +5,6 @@
 Checked against **WGU Course Design System 2.1**.
 
 - The skill checks its own version against a "Minimum `wgu-course-ds` plugin version" line in the DS README, and tells anyone on an older copy how to update.
-- The setup message also turns on auto-update for the project.
 
 ## 1.0.1 · 2026-11-16
 

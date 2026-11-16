@@ -10,7 +10,7 @@
       "name": "wgu-course-ds",
       "source": "./plugins/wgu-course-ds",
       "description": "Build and review WGU course UI against the WGU Course Design System, in any stack.",
-      "version": "1.0.1"
+      "version": "1.0.2"
     }
   ]
 }

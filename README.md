@@ -12,10 +12,10 @@ A Claude Code plugin marketplace for people building WGU courses. Each plugin ad
 
 Plugins here are meant to be installed per project, so they're only active in the folders that need them.
 
-**In the Claude app** (Code tab, with your project folder open), send Claude this message and click **Allow** when asked:
+**In the Claude app** (Code tab, with your project folder open), send Claude this message and click **Allow** each time it asks:
 
 ```
-Set up the WGU course design system plugin for this project only: add the plugin marketplace miguel-zoux/wgu-skills, then install wgu-course-ds@wgu-skills with project scope.
+Set up the WGU course design system plugin for this project only: add the plugin marketplace miguel-zoux/wgu-skills, install wgu-course-ds@wgu-skills with project scope, then turn on auto-update for the wgu-skills marketplace in this project's settings.
 ```
 
 Then start a new chat.
@@ -26,6 +26,12 @@ Then start a new chat.
 claude plugin marketplace add miguel-zoux/wgu-skills
 claude plugin install wgu-course-ds@wgu-skills --scope project
 ```
+
+then add `"autoUpdate": true` to the `wgu-skills` entry under `extraKnownMarketplaces` in the project's `.claude/settings.json`.
+
+## Updates
+
+With auto-update on, Claude Code checks for a new version within about ten minutes of the first message in a session, and the new version loads in the next chat. A plugin only counts as updated when its `version` changes, so every release bumps it.
 
 Each plugin's README lists anything else it needs. For `wgu-course-ds`, that's view access to the design system.
 

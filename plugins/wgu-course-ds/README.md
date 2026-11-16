@@ -17,10 +17,10 @@ Both trigger on their own when the work matches; you can also ask for them by na
 
 Install it in each course project folder, so it's only active there.
 
-**In the Claude app** (Code tab, with your course folder open), send Claude this message and click **Allow** when asked:
+**In the Claude app** (Code tab, with your course folder open), send Claude this message and click **Allow** each time it asks:
 
 ```
-Set up the WGU course design system plugin for this project only: add the plugin marketplace miguel-zoux/wgu-skills, then install wgu-course-ds@wgu-skills with project scope.
+Set up the WGU course design system plugin for this project only: add the plugin marketplace miguel-zoux/wgu-skills, install wgu-course-ds@wgu-skills with project scope, then turn on auto-update for the wgu-skills marketplace in this project's settings.
 ```
 
 Then start a new chat. The skills show under **+ → Slash commands** as `wgu-course-ds:…`.
@@ -32,7 +32,15 @@ claude plugin marketplace add miguel-zoux/wgu-skills
 claude plugin install wgu-course-ds@wgu-skills --scope project
 ```
 
-Project scope records the plugin in the folder's `.claude/settings.json`, so it doesn't load anywhere else. Update with `claude plugin marketplace update wgu-skills`.
+Then add `"autoUpdate": true` to the `wgu-skills` entry under `extraKnownMarketplaces` in the project's `.claude/settings.json`.
+
+Project scope records the plugin in the folder's `.claude/settings.json`, so it doesn't load anywhere else.
+
+## Updates
+
+- **Automatic:** with auto-update on, new versions arrive within about ten minutes of starting a session and load in the next chat.
+- **By hand:** send Claude *"Update the WGU course design system plugin: run claude plugin marketplace update wgu-skills, then claude plugin update wgu-course-ds@wgu-skills --scope project."*, then start a new chat.
+- **Making sure everyone updates:** the design system's `project/README.md` can name a minimum plugin version (see `docs/for-ds-readme.md`). When someone's copy is older, the skill tells them and gives them the update message.
 
 ## Requirements
 
@@ -56,5 +64,5 @@ Live design system → this plugin's rules → Figma → existing code. When the
 ## Changing the plugin
 
 - Rules: `skills/wgu-course-ds/references/rules.md`. Keep exact values out; they belong in the design system's `tokens.json`.
-- Bump `version` in this plugin's `.claude-plugin/plugin.json` **and** in the marketplace's `.claude-plugin/marketplace.json` at the repo root, and add a `CHANGELOG.md` entry naming the DS version it was checked against.
+- Bump the version in three places: this plugin's `.claude-plugin/plugin.json`, the marketplace's `.claude-plugin/marketplace.json` at the repo root, and `PLUGIN_VERSION` in `skills/wgu-course-ds/SKILL.md`. Without a bump, nobody receives the change. Add a `CHANGELOG.md` entry naming the DS version it was checked against.
 - Tokens and components aren't added here. New ones are requested from the designers (see `references/requests.md`).
